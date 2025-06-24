@@ -3,112 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>Teo Zocchi // Interactive Console</title>
+    <title>Corvid Console // Booting...</title>
     
     <link rel="stylesheet" href="./style.css"> 
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body data-theme="raven"> <!-- Default theme is 'raven' -->
+<body>
+    <!-- Persistent atmospheric layer for the vignette -->
+    <div id="vignette-overlay"></div>
 
-    <!-- Command Palette -->
-    <div class="command-palette-overlay is-hidden" id="command-palette-overlay">
-        <div class="command-palette">
-            <input type="text" id="command-input" placeholder="Type a command (e.g., 'theme', 'project')...">
-            <ul id="command-list"></ul>
-        </div>
-    </div>
-    
-    <!-- Modal for Projects & Neofetch -->
-    <div class="modal-overlay is-hidden" id="modal-overlay">
-        <div class="window modal" id="modal-window">
-            <div class="title-bar">
-                <span class="title" id="modal-title"></span>
-                <div class="title-bar-controls">
-                    <button class="control-button" id="modal-close-btn">[x]</button>
-                </div>
-            </div>
-            <div class="content" id="modal-content">
-                <!-- Content injected by JavaScript -->
-            </div>
-        </div>
+    <!-- BOOT SCREEN: Shown on page load, hidden after sequence -->
+    <div id="boot-screen">
+        <pre id="boot-log"></pre>
     </div>
 
-    <!-- Main Desktop -->
-    <main class="desktop" id="desktop">
-        <div class="grid-container">
-            <!-- Left Column -->
-            <div class="grid-column-left">
-                <div class="window" id="profile-window">
-                    <div class="title-bar">
-                        <span class="title">╭─ [ profile ]</span>
-                        <div class="title-bar-controls"><span>[─]</span><span>[□]</span><span>[x]</span></div>
-                    </div>
-                    <div class="content">
-                        <h1 id="profile-name"></h1>
-                        <p id="profile-title"></p>
-                        <ul class="links" id="profile-links">
-                            <!-- Links injected by JavaScript -->
-                        </ul>
-                    </div>
-                </div>
-                <div class="window" id="skills-window">
-                    <div class="title-bar">
-                        <span class="title">╭─ [ skills ]</span>
-                        <div class="title-bar-controls"><span>[─]</span><span>[□]</span><span>[x]</span></div>
-                    </div>
-                    <div class="content" id="skills-content">
-                        <!-- Skills injected by JavaScript -->
-                    </div>
-                </div>
-            </div>
+    <!-- MAIN CONSOLE WRAPPER: Contains the full portfolio content -->
+    <div id="console-wrapper" class="is-hidden">
+        
+        <div class="container">
+            <!-- Header -->
+            <header>
+                <h1>Teo Zocchi</h1>
+                <p class="tagline">// Offensive Security Engineer & TUI Enthusiast.</p>
+            </header>
+            <main>
+                <!-- About Section -->
+                <section id="about">
+                    <h2><span class="bracket">[</span> C:\\Users\\Teo> whoami <span class="bracket">]</span></h2>
+                    <p>I'm a security-focused engineer with a passion for building resilient systems by understanding how to break them. My background in [mention your field/background] provides a strong foundation for analytical problem-solving and adversarial thinking.</p>
+                </section>
 
-            <!-- Right Column -->
-            <div class="grid-column-right">
-                <div class="window" id="projects-window">
-                    <div class="title-bar">
-                        <span class="title">╭─ [ projects ]</span>
-                        <div class="title-bar-controls"><span>[─]</span><span>[□]</span><span>[x]</span></div>
+                <!-- Projects Section -->
+                <section id="projects">
+                    <h2><span class="bracket">[</span> ls -l /engagements <span class="bracket">]</span></h2>
+                    
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <h3>Project_Phantasm</h3>
+                            <p>A simulated phishing campaign analysis tool. Ingests email headers and attachments to identify potential threat vectors and IOCs.</p>
+                            <p class="tech-stack">[ Python ] [ Docker ] [ ELK Stack ]</p>
+                            <div class="project-links">
+                                <a href="#" target="_blank">[ view_report ]</a>
+                                <a href="#" target="_blank">[ source_code ]</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <h3>Project_Cerberus</h3>
+                            <p>A custom rootkit detection scanner for Debian-based systems, designed to identify anomalies in kernel-level processes.</p>
+                             <p class="tech-stack">[ Rust ] [ eBPF ] [ Linux ]</p>
+                            <div class="project-links">
+                                <a href="#" target="_blank">[ live_demo ]</a>
+                                <a href="#" target="_blank">[ source_code ]</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="content">
-                        <ul class="project-list" id="project-list">
-                            <!-- Projects injected by JavaScript -->
-                        </ul>
-                    </div>
+                </section>
+
+                <!-- Skills Section -->
+                <section id="skills">
+                    <h2><span class="bracket">[</span> /usr/bin/skills --all <span class="bracket">]</span></h2>
+                    
+                    <ul>
+                        <li>Penetration Testing</li>
+                        <li>Python (Scapy)</li>
+                        <li>Nmap</li>
+                        <li>Metasploit</li>
+                        <li>Burp Suite</li>
+                        <li>Reverse Engineering</li>
+                        <li>Docker</li>
+                        <li>Linux Internals</li>
+                    </ul>
+                </section>
+            </main>
+            
+            <!-- Footer -->
+            <footer>
+                <h2><span class="bracket">[</span> netcat -l -p 1337 <span class="bracket">]</span></h2>
+                
+                <p>Open to establishing a reverse shell for new opportunities. My command & control server is listening.</p>
+                <a href="mailto:your.email@example.com" class="email-link">[ initiate_contact ]</a>
+                <div class="social-links">
+                    <a href="https://github.com/your-username" target="_blank">[ GitHub ]</a>
+                    <span class="separator">◆</span>
+                    <a href="https://linkedin.com/in/your-profile" target="_blank">[ LinkedIn ]</a>
+                     <span class="separator">◆</span>
+                    <a href="/resume.pdf" target="_blank">[ download_intel ]</a>
                 </div>
-                <div class="window" id="log-window">
-                    <div class="title-bar">
-                        <span class="title">╭─ [ status_log ]</span>
-                        <div class="title-bar-controls"><span>[─]</span><span>[□]</span><span>[x]</span></div>
-                    </div>
-                    <div class="content">
-                        <pre id="log-content" class="log-content"></pre>
-                    </div>
+
+                <!-- Live Status Bar -->
+                <div class="status-bar">
+                    <span id="status-log"></span>
                 </div>
-            </div>
+            </footer>
         </div>
-    </main>
 
-    <!-- Status Bar -->
-    <footer class="status-bar">
-        <div class="status-left">
-            <span>// CORVID CONSOLE</span>
-            <span class="raven-icon">◆</span>
-            <span class="hint">[Ctrl+K]</span>
-        </div>
-        <div class="status-right">
-            <button id="audio-toggle" class="control-button">[🔇]</button>
-            <span id="clock"></span>
-            <span>UTF-8</span>
-            <span>LF</span>
-        </div>
-    </footer>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
-    <script src="./script.js"></script>
+    <!-- COMMAND BAR: Fixed at the bottom of the screen -->
+    <div id="command-bar" class="is-hidden">
+        <span class="prompt">[user@corvid-console ~]$</span>
+        <input type="text" id="command-input" autocomplete="off" autofocus>
+    </div>
 
+    <script src="./script.js" defer></script>
 </body>
 </html>
