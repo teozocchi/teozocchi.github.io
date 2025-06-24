@@ -1,33 +1,136 @@
+/* Dracula Color Palette as CSS Variables */
+:root {
+    --background: #282a36;
+    --current-line: #44475a;
+    --foreground: #f8f8f2;
+    --comment: #6272a4;
+    --cyan: #8be9fd;
+    --green: #50fa7b;
+    --orange: #ffb86c;
+    --pink: #ff79c6;
+    --purple: #bd93f9;
+    --red: #ff5555;
+    --yellow: #f1fa8c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-  background-color: #0d1117;
-  color: #c9d1d9;
-  font-family: "JetBrains Mono", monospace;
-  padding: 2rem;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Hide scrollbars from the body */
 }
 
-#terminal {
-  max-width: 800px;
-  margin: auto;
-  white-space: pre-wrap;
-  line-height: 1.5;
+.desktop {
+    position: relative;
+    height: calc(100vh - 25px); /* Full height minus status bar */
+    width: 100vw;
 }
 
-.prompt-line {
-  display: flex;
-  margin-top: 1rem;
+.window {
+    position: absolute;
+    background-color: #1e1f29; /* Slightly darker than main bg */
+    border: 1px solid var(--current-line);
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+    min-height: 150px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.25);
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-.prompt {
-  color: #58a6ff;
-  margin-right: 0.5rem;
+.window.is-active {
+    border-color: var(--purple);
+    box-shadow: 0 0 25px rgba(189, 147, 249, 0.3);
+    z-index: 100; /* Bring to front */
+}
+
+.title-bar {
+    background-color: var(--current-line);
+    color: var(--foreground);
+    padding: 4px 8px;
+    cursor: move;
+    user-select: none; /* Prevent text selection while dragging */
+    font-weight: 700;
+}
+
+.content {
+    padding: 15px;
+    flex-grow: 1;
+    overflow: auto; /* Make content scrollable if it overflows */
+}
+
+/* Specific Content Styling */
+h1 {
+    color: var(--cyan);
+    margin: 0 0 10px 0;
+}
+
+.links li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+a {
+    color: var(--pink);
+    text-decoration: none;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+a:hover {
+    background-color: var(--pink);
+    color: var(--background);
+}
+
+.project-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.project-list li { margin-bottom: 20px; }
+.project-list h3 { margin: 0; color: var(--green); }
+.project-list .tags { font-size: 0.8em; color: var(--orange); }
+.project-list p { margin: 5px 0 0 0; color: var(--comment); }
+
+.log-content {
+    margin: 0;
+    font-size: 0.9em;
+    color: var(--foreground);
 }
 
 .cursor {
-  animation: blink 1s steps(1) infinite;
-  color: #58a6ff;
+    background-color: var(--foreground);
+    animation: blink 1s step-end infinite;
 }
 
 @keyframes blink {
-  50% { opacity: 0; }
+    from, to { background-color: transparent }
+    50% { background-color: var(--foreground); }
 }
 
+/* Status Bar */
+.status-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    background-color: var(--current-line);
+    color: var(--foreground);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 0.85em;
+}
+
+.status-right span {
+    margin-left: 15px;
+}
