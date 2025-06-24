@@ -2,32 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>teozocchi | terminal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>teozocchi</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="icon" href="assets/raven.png" />
 </head>
 <body>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div id="terminal">
+    <pre id="output">
+[teozocchi@arch ~]$ booting terminal...
+    </pre>
+    <div class="input-line">
+      <span class="prompt">[teozocchi@arch ~]$</span>
+      <input type="text" id="cmd" autofocus autocomplete="off" />
+    </div>
+  </div>
 
-  <header>
-    <img src="assets/raven.png" alt="Profile picture" class="pfp" />
-    <h1 id="typed-title"></h1>
-    <p class="subtitle">Arch Linux user • Dev-in-training • Into TUI & system stuff</p>
-  </header>
-
-  <main>
-    <section id="about">
-      <h2>🧠 About</h2>
-      <p>
-        I'm Teo, a high school IT student in my final year (2025–2026), building tools and learning from the ground up. I use Arch btw.
-        Currently studying for the TOLC-S and preparing for a degree in Computer Science at Milano Bicocca.
-      </p>
-    </section>
-
-    <se
+  <script src="script.js"></script>
+</body>
+</html>
 
