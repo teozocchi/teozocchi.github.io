@@ -9,21 +9,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Windowing ---
     const windows = document.querySelectorAll('.window');
+    
+    // Set initial active window and z-index
+    const allWindows = Array.from(document.querySelectorAll('.window'));
+    allWindows.forEach((win, index) => {
+        // Stagger z-index to avoid ties
+        win.style.zIndex = index + 1;
+    });
+
+    function setActive(win) {
+        // Find the current highest z-index
+        const maxZ = allWindows.reduce((max, w) => Math.max(max, parseInt(w.style.zIndex || 1)), 1);
+
+        // De-activate all windows
+        allWindows.forEach(w => w.classList.remove('is-active'));
+        
+        // Activate the clicked one and bring it to the front
+        win.classList.add('is-active');
+        win.style.zIndex = maxZ + 1;
+    }
 
     // Set initial active window
     const profileWindow = document.getElementById('profile-window');
     if (profileWindow) {
-        profileWindow.classList.add('is-active');
+        setActive(profileWindow);
     }
-
+    
     windows.forEach(win => {
-        win.addEventListener('mousedown', () => {
-            // Remove active class from all windows
-            windows.forEach(w => w.classList.remove('is-active'));
-            // Add active class to the clicked window
-            win.classList.add('is-active');
-        });
+        win.addEventListener('mousedown', () => setActive(win), { capture: true });
     });
+
 
     // --- Interact.js Logic ---
     interact('.window')
