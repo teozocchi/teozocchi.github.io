@@ -1,143 +1,111 @@
-/* --- Raven Theme Palette --- */
-:root {
-    --background: #10121a; /* Very dark cold blue */
-    --panel-bg: #191c26;
-    --border: #33384a;
-    --text: #c8c8d3;
-    --text-muted: #70768b;
-    --accent-red: #d9455f; /* The 'berry' color */
-    --accent-cyan: #68d6d4;
-    --accent-green: #68d485;
+/* --- THEME DEFINITIONS --- */
+body[data-theme='raven'] {
+    --background: #10121a; --panel-bg: #191c26; --border: #33384a;
+    --text: #c8c8d3; --text-muted: #70768b;
+    --accent-red: #d9455f; --accent-cyan: #68d6d4; --accent-green: #68d485;
+}
+body[data-theme='dracula'] {
+    --background: #282a36; --panel-bg: #21222c; --border: #44475a;
+    --text: #f8f8f2; --text-muted: #6272a4;
+    --accent-red: #ff79c6; --accent-cyan: #8be9fd; --accent-green: #50fa7b;
+}
+body[data-theme='nord'] {
+    --background: #2e3440; --panel-bg: #3b4252; --border: #4c566a;
+    --text: #d8dee9; --text-muted: #5e81ac;
+    --accent-red: #bf616a; --accent-cyan: #88c0d0; --accent-green: #a3be8c;
 }
 
 /* --- Base & Background --- */
-* {
-    box-sizing: border-box;
-}
-
+* { box-sizing: border-box; }
 body {
     background-color: var(--background);
     color: var(--text);
     font-family: 'JetBrains Mono', monospace;
-    font-size: 16px;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    /* Subtle noise/static background for texture */
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAklEQVRoQ+3NMQEAAAgDILV/55sRwwgAzs02YABsFBgAFwUGAEcFBgB7BQYARwUGgEeBBYBHYAEgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAg-AAAAAAAADwA2iABYHBiAAAAA=');
+    font-size: 16px; margin: 0; padding: 0; overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAklEQVRoQ+3NMQEAAAgDILV/55sRwwgAzs02YABsFBgAFwUGAEcFBgB7BQYARwUGgEeBBYBHYAEgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQ-AAAAAAAADwA2ABYHBiAAAAA=');
 }
 
-/* --- Tiled Layout --- */
-.desktop {
-    height: calc(100vh - 25px);
-    width: 100vw;
-    padding: 20px;
-}
-.grid-container {
-    display: grid;
-    grid-template-columns: 350px 1fr;
-    grid-template-rows: 1fr auto;
-    gap: 20px;
-    height: 100%;
-}
-.grid-column-left {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.grid-column-right {
-    display: grid;
-    grid-template-rows: 1fr 200px; /* Projects take most space, log gets 200px */
-    gap: 20px;
-}
+/* --- Command Palette --- */
+.command-palette-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(16, 18, 26, 0.7); backdrop-filter: blur(5px); z-index: 2000; opacity: 1; transition: opacity 0.2s ease; display: flex; justify-content: center; padding-top: 15vh; }
+.command-palette-overlay.is-hidden { opacity: 0; pointer-events: none; }
+.command-palette { width: 90%; max-width: 600px; background: var(--panel-bg); border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+#command-input { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--border); color: var(--text); font-family: 'JetBrains Mono', monospace; font-size: 1.2em; padding: 15px; outline: none; }
+#command-list { list-style: none; padding: 0; margin: 0; max-height: 40vh; overflow-y: auto; }
+#command-list li { padding: 10px 15px; cursor: pointer; border-bottom: 1px solid var(--border); transition: background-color 0.1s; }
+#command-list li.is-selected { background-color: var(--accent-red); color: var(--background); }
+#command-list li .cmd-desc { font-size: 0.8em; color: var(--text-muted); }
+#command-list li.is-selected .cmd-desc { color: var(--background); }
 
-/* --- Window Styling --- */
-.window {
-    background-color: var(--panel-bg);
-    border: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    transition: all 0.2s ease-in-out;
-    position: static; /* Tiled by default */
-}
-.window.is-dragging {
-    position: absolute; /* Becomes floating when dragged */
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
-}
-.window.is-active {
-    border-color: var(--accent-red);
-    box-shadow: 0 0 25px rgba(217, 69, 95, 0.3);
-    z-index: 100;
-}
+/* --- Tiled Layout & Window Styling --- */
+.desktop { height: calc(100vh - 25px); width: 100vw; padding: 20px; position: relative; }
+.grid-container { display: grid; grid-template-columns: 350px 1fr; grid-template-rows: 1fr; gap: 20px; height: 100%; }
+.grid-column-left { display: grid; grid-template-rows: auto 1fr; gap: 20px; }
+.grid-column-right { display: grid; grid-template-rows: 1fr 200px; gap: 20px; }
+.window { background-color: var(--panel-bg); border: 1px solid var(--border); display: flex; flex-direction: column; position: static; transition: border-color 0.2s, box-shadow 0.2s; }
+.window.is-floating { position: absolute; box-shadow: 0 0 40px rgba(0, 0, 0, 0.5); }
+.window.is-active { border-color: var(--accent-red); box-shadow: 0 0 25px rgba(217, 69, 95, 0.3); z-index: 100; }
+.title-bar { border-bottom: 1px solid var(--border); color: var(--text); padding: 6px 10px; cursor: move; user-select: none; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+.content { padding: 15px; flex-grow: 1; overflow: auto; }
+.content:focus { outline: none; }
+.window:not(.modal)::after { content: '◢'; position: absolute; bottom: 2px; right: 5px; color: var(--text-muted); font-size: 14px; cursor: se-resize; pointer-events: none; opacity: 0.5; }
 
-.title-bar {
-    background-color: transparent; /* Cleaner look */
-    border-bottom: 1px solid var(--border);
-    color: var(--text);
-    padding: 6px 10px;
-    cursor: move;
-    user-select: none;
-    font-weight: 700;
-}
-.content {
-    padding: 15px;
-    flex-grow: 1;
-    overflow: auto;
-}
-h1 {
-    color: var(--accent-cyan);
-    margin: 0 0 10px 0;
-}
+/* --- Custom Scrollbars --- */
+.content::-webkit-scrollbar { width: 8px; }
+.content::-webkit-scrollbar-track { background: var(--panel-bg); }
+.content::-webkit-scrollbar-thumb { background: var(--border); }
+.content::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
 /* --- Component-Specific Styles --- */
+h1 { color: var(--accent-cyan); margin: 0 0 10px 0; }
 .links li { list-style: none; display: inline; margin-right: 15px; }
 a { color: var(--accent-red); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 4px; }
-
 .skills-list { list-style: none; padding: 0; margin: 0; }
 .skills-list li { margin-bottom: 8px; }
 .skill-category { color: var(--accent-cyan); font-weight: 700; }
-
 .project-list { list-style: none; padding: 0; margin: 0; }
-.project-list li { margin-bottom: 20px; }
-.project-list h3 { margin: 0; color: var(--accent-green); }
-.project-list .tags { font-size: 0.8em; color: var(--text-muted); }
-.project-list p { margin: 5px 0 0 0; color: var(--text); }
+.project-list:focus { outline: none; }
+.project-list li { padding: 10px; margin-bottom: 5px; transition: background-color 0.2s; cursor: pointer; }
+.project-list li:hover { background-color: rgba(255, 255, 255, 0.05); }
+.project-list li.is-focused { background-color: rgba(255, 255, 255, 0.05); outline: 1px solid var(--accent-green); }
+.project-list h3 { margin: 0; color: var(--accent-green); pointer-events: none; }
+.project-list .tags { font-size: 0.8em; color: var(--text-muted); pointer-events: none; }
+.project-list p { margin: 5px 0 0 0; color: var(--text); pointer-events: none; }
+.log-content { margin: 0; font-size: 0.9em; color: var(--text-muted); white-space: pre-wrap; }
+.log-content .cursor { display: inline-block; background-color: var(--text); width: 8px; height: 1.2em; animation: blink 1s step-end infinite; }
+@keyframes blink { 50% { background-color: transparent; } }
+.title-bar-controls { color: var(--text-muted); font-size: 0.9em; display: flex; gap: 8px; }
+.title-bar-controls span { cursor: default; }
+.control-button { background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 0; font-family: 'JetBrains Mono', monospace; font-size: 1em; }
 
-.log-content {
-    margin: 0;
-    font-size: 0.9em;
-    color: var(--text-muted);
-    white-space: pre-wrap; /* Allows text to wrap */
-}
-.log-content .cursor {
-    display: inline-block;
-    background-color: var(--text);
-    width: 8px;
-    height: 1.2em;
-    animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-    from, to { background-color: transparent }
-    50% { background-color: var(--text); }
-}
+/* --- Modal & Neofetch Styles --- */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(16, 18, 26, 0.8); backdrop-filter: blur(5px); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 1; transition: opacity 0.3s ease; }
+.modal-overlay.is-hidden { opacity: 0; pointer-events: none; }
+.window.modal { position: relative; width: 90%; max-width: 600px; max-height: 80vh; border-color: var(--accent-cyan); }
+.modal-content-links { margin-top: 20px; }
+.modal-content-links a { margin-right: 15px; }
+.modal-content hr { border-color: var(--border); border-style: solid; margin: 15px 0; }
+.modal-content img { width: 100%; border-radius: 4px; margin-bottom: 15px; border: 1px solid var(--border); }
+.neofetch-grid { display: grid; grid-template-columns: 140px 1fr; gap: 20px; align-items: center; }
+.neofetch-logo { font-family: monospace; font-size: 10px; line-height: 1.1; white-space: pre; color: var(--accent-red); }
+.neofetch-info h2 { color: var(--text); border-bottom: 1px solid var(--accent-red); margin: 0 0 10px 0; padding-bottom: 5px; }
+.neofetch-info ul { list-style: none; padding: 0; margin: 0; }
+.neofetch-info li { margin-bottom: 5px; }
+.neofetch-info li strong { color: var(--accent-cyan); }
 
 /* --- Status Bar --- */
-.status-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 25px;
-    background-color: var(--panel-bg);
-    border-top: 1px solid var(--border);
-    color: var(--text);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 15px;
-    font-size: 0.85em;
-}
+.status-bar { position: fixed; bottom: 0; left: 0; width: 100%; height: 25px; background-color: var(--panel-bg); border-top: 1px solid var(--border); color: var(--text); display: flex; justify-content: space-between; align-items: center; padding: 0 15px; font-size: 0.85em; z-index: 1500; }
 .status-left, .status-right { display: flex; align-items: center; gap: 15px; }
 .raven-icon { color: var(--accent-red); font-size: 1.2em; }
+.hint { color: var(--text-muted); }
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    body { overflow: auto; }
+    .desktop { height: auto; padding: 10px; padding-bottom: 35px; }
+    .grid-container { grid-template-columns: 1fr; grid-template-rows: auto; height: auto; }
+    .grid-column-left, .grid-column-right { grid-template-rows: auto; }
+    .window.is-floating { display: none; } /* On mobile, just hide floating windows if they exist */
+    .status-bar { position: fixed; }
+}
