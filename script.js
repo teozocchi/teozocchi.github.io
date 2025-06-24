@@ -1,53 +1,33 @@
-const output = document.getElementById("output");
-const input = document.getElementById("cmd");
+const typingArea = document.getElementById("typing-area");
 
-const commands = {
-  help: `Available commands:
-  - about: Info about me
-  - projects: List of my projects
-  - contact: How to reach me
-  - clear: Clear terminal
-  - help: This help menu`,
+const lines = [
+  "[teozocchi@arch ~]$ cat about.txt",
+  "Hi, I'm Teo.",
+  "Final year IT student, Linux-heavy and metal-infused.",
+  "Learning C, Python, Docker, and TUI design.",
+  "Intern @ Workgroup Consulting, future Bicocca student.",
+  "",
+  "Type 'github.com/sh1rafune' into your browser, I dare you."
+];
 
-  about: `I'm Teo — final year IT student, Linux user, metalhead, and system nerd.
-Studying for TOLC-S and preparing for Informatica @ Bicocca.
-Learning C, Python, Linux, and building TUI tools.`,
+let lineIndex = 0;
+let charIndex = 0;
 
-  projects: `Current projects:
-  - sysadmin-tools: Bash & Python CLI tools
-  - tui-tasker: Task manager in Textual
-  - riconciliazione: Python invoice matcher used in internship`,
+function typeLine() {
+  if (lineIndex >= lines.length) return;
 
-  contact: `GitHub : https://github.com/sh1rafune
-Email  : teozocchi [at] example [dot] com`,
-
-  clear: "clear"
-};
-
-input.addEventListener("keydown", function (e) {
-  if (e.key === "Enter") {
-    const cmd = input.value.trim();
-    handleCommand(cmd);
-    input.value = "";
-  }
-});
-
-function handleCommand(cmd) {
-  appendLine(`[teozocchi@arch ~]$ ${cmd}`);
-  if (commands[cmd]) {
-    if (cmd === "clear") {
-      output.innerText = "";
-    } else {
-      appendLine(commands[cmd]);
-    }
-  } else if (cmd.length === 0) {
-    appendLine("");
+  const line = lines[lineIndex];
+  if (charIndex < line.length) {
+    typingArea.innerHTML += line.charAt(charIndex);
+    charIndex++;
+    setTimeout(typeLine, 30);
   } else {
-    appendLine(`command not found: ${cmd}`);
+    typingArea.innerHTML += "\n";
+    charIndex = 0;
+    lineIndex++;
+    setTimeout(typeLine, 300);
   }
 }
 
-function appendLine(text) {
-  output.innerText += `\n${text}`;
-}
+typeLine();
 

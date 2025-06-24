@@ -5,19 +5,14 @@
   <title>teozocchi | terminal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="assets/raven.png" />
 </head>
 <body>
   <div id="terminal">
-    <pre id="output">
-[teozocchi@arch ~]$ booting terminal...
-    </pre>
-    <div class="input-line">
-      <span class="prompt">[teozocchi@arch ~]$</span>
-      <input type="text" id="cmd" autofocus autocomplete="off" />
+    <pre id="typing-area"></pre>
+    <div class="prompt-line">
+      <span class="prompt">[teozocchi@arch ~]$</span><span class="cursor">█</span>
     </div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,26 +1,20 @@
 body {
   background-color: #0d1117;
   color: #c9d1d9;
-  font-family: 'JetBrains Mono', monospace;
-  margin: 0;
-  padding: 1rem;
-  height: 100vh;
+  font-family: "JetBrains Mono", monospace;
+  padding: 2rem;
 }
 
 #terminal {
   max-width: 800px;
   margin: auto;
   white-space: pre-wrap;
-  overflow-y: auto;
+  line-height: 1.5;
 }
 
-pre#output {
-  margin-bottom: 0.5rem;
-}
-
-.input-line {
+.prompt-line {
   display: flex;
-  align-items: center;
+  margin-top: 1rem;
 }
 
 .prompt {
@@ -28,21 +22,12 @@ pre#output {
   margin-right: 0.5rem;
 }
 
-input#cmd {
-  background: none;
-  border: none;
-  outline: none;
-  color: #c9d1d9;
-  font-family: inherit;
-  font-size: 1rem;
-  width: 100%;
+.cursor {
+  animation: blink 1s steps(1) infinite;
+  color: #58a6ff;
 }
 
-input#cmd::placeholder {
-  color: #444;
-}
-
-selection {
-  background: #58a6ff33;
+@keyframes blink {
+  50% { opacity: 0; }
 }
 
