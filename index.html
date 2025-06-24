@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name // Portfolio</title>
+    <!-- You should generate a favicon.ico and place it in the root -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Teo Zocchi // Corvid Console</title>
     
-    <!-- This path is now corrected for GitHub Pages -->
     <link rel="stylesheet" href="./style.css"> 
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,64 +16,78 @@
 <body>
 
     <main class="desktop">
-        <!-- Profile Window -->
-        <div class="window" id="profile-window" style="width: 400px; height: 250px; top: 5vh; left: 10vw;">
-            <div class="title-bar">
-                <span class="title">╭─ [ profile ]</span>
+        <div class="grid-container">
+            <!-- Left Column -->
+            <div class="grid-column-left">
+                <div class="window" id="profile-window">
+                    <div class="title-bar">
+                        <span class="title">╭─ [ profile ]</span>
+                    </div>
+                    <div class="content">
+                        <h1>Teo Zocchi</h1>
+                        <p>Creative Software Engineer & TUI Enthusiast.</p>
+                        <ul class="links">
+                            <li><a href="https://github.com/teozocchi" target="_blank">[ GitHub ]</a></li>
+                            <li><a href="#" target="_blank">[ LinkedIn ]</a></li>
+                            <li><a href="#" target="_blank">[ Resume.pdf ]</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="window" id="skills-window">
+                    <div class="title-bar">
+                        <span class="title">╭─ [ skills ]</span>
+                    </div>
+                    <div class="content">
+                        <ul class="skills-list">
+                            <li><span class="skill-category">Languages:</span> Python, JavaScript, Rust, SQL</li>
+                            <li><span class="skill-category">Frontend:</span> React, HTML5, CSS3, Tailwind</li>
+                            <li><span class="skill-category">Backend:</span> Node.js, FastAPI, Django</li>
+                            <li><span class="skill-category">Tools:</span> Git, Docker, Neovim, Linux</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="content">
-                <h1>Your Name</h1>
-                <p>Creative Software Engineer & TUI Enthusiast</p>
-                <p>Building clean, interactive experiences from the terminal to the browser.</p>
-                <ul class="links">
-                    <li><a href="#" target="_blank">[ GitHub ]</a></li>
-                    <li><a href="#" target="_blank">[ LinkedIn ]</a></li>
-                    <li><a href="#" target="_blank">[ Resume.pdf ]</a></li>
-                </ul>
-            </div>
-        </div>
 
-        <!-- Projects Window -->
-        <div class="window" id="projects-window" style="width: 550px; height: 400px; top: 15vh; left: 35vw;">
-            <div class="title-bar">
-                <span class="title">╭─ [ projects ]</span>
-            </div>
-            <div class="content">
-                <ul class="project-list">
-                    <li>
-                        <h3>Project One <span class="tags">[React] [Node.js]</span></h3>
-                        <p>A short, compelling description of this amazing project and what it accomplishes.</p>
-                    </li>
-                    <li>
-                        <h3>Another Cool Thing <span class="tags">[Python] [FastAPI]</span></h3>
-                        <p>This one solved a complex problem with an elegant solution. It was featured in...</p>
-                    </li>
-                    <li>
-                        <h3>TUI-Clock <span class="tags">[Rust] [Tui-rs]</span></h3>
-                        <p>A terminal-based clock application demonstrating low-level systems programming skills.</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        
-        <!-- Status/Log Window -->
-        <div class="window" id="log-window" style="width: 500px; height: 200px; top: 50vh; left: 20vw;">
-            <div class="title-bar">
-                <span class="title">╭─ [ status_log ]</span>
-            </div>
-            <div class="content">
-                <pre class="log-content">
-[INFO] System boot... OK
-[INFO] Initializing desktop environment... OK
-[INFO] Fetching assets...
-[OKAY] All components loaded successfully.
-[INFO] Awaiting user interaction<span class="cursor">_</span></pre>
+            <!-- Right Column -->
+            <div class="grid-column-right">
+                <div class="window" id="projects-window">
+                    <div class="title-bar">
+                        <span class="title">╭─ [ projects ]</span>
+                    </div>
+                    <div class="content">
+                        <ul class="project-list">
+                            <li>
+                                <h3>Project One <span class="tags">[React] [Node.js]</span></h3>
+                                <p>A short, compelling description of this amazing project.</p>
+                            </li>
+                            <li>
+                                <h3>Another Cool Thing <span class="tags">[Python] [FastAPI]</span></h3>
+                                <p>This one solved a complex problem with an elegant solution.</p>
+                            </li>
+                            <li>
+                                <h3>TUI-Clock <span class="tags">[Rust] [Tui-rs]</span></h3>
+                                <p>A terminal-based clock application. Demonstrates low-level skills.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="window" id="log-window">
+                    <div class="title-bar">
+                        <span class="title">╭─ [ status_log ]</span>
+                    </div>
+                    <div class="content">
+                        <pre id="log-content" class="log-content"></pre>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
 
     <footer class="status-bar">
-        <div class="status-left">[ NORMAL MODE ]</div>
+        <div class="status-left">
+            <span>// CORVID CONSOLE</span>
+            <span class="raven-icon">◆</span>
+        </div>
         <div class="status-right">
             <span id="clock"></span>
             <span>UTF-8</span>
@@ -80,10 +95,7 @@
         </div>
     </footer>
 
-    <!-- Interactivity Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
-    
-    <!-- This path is now corrected for GitHub Pages -->
     <script src="./script.js"></script>
 
 </body>

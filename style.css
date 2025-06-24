@@ -1,136 +1,143 @@
-/* Dracula Color Palette as CSS Variables */
+/* --- Raven Theme Palette --- */
 :root {
-    --background: #282a36;
-    --current-line: #44475a;
-    --foreground: #f8f8f2;
-    --comment: #6272a4;
-    --cyan: #8be9fd;
-    --green: #50fa7b;
-    --orange: #ffb86c;
-    --pink: #ff79c6;
-    --purple: #bd93f9;
-    --red: #ff5555;
-    --yellow: #f1fa8c;
+    --background: #10121a; /* Very dark cold blue */
+    --panel-bg: #191c26;
+    --border: #33384a;
+    --text: #c8c8d3;
+    --text-muted: #70768b;
+    --accent-red: #d9455f; /* The 'berry' color */
+    --accent-cyan: #68d6d4;
+    --accent-green: #68d485;
 }
 
+/* --- Base & Background --- */
 * {
     box-sizing: border-box;
 }
 
 body {
     background-color: var(--background);
-    color: var(--foreground);
+    color: var(--text);
     font-family: 'JetBrains Mono', monospace;
     font-size: 16px;
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Hide scrollbars from the body */
+    overflow: hidden;
+    /* Subtle noise/static background for texture */
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAklEQVRoQ+3NMQEAAAgDILV/55sRwwgAzs02YABsFBgAFwUGAEcFBgB7BQYARwUGgEeBBYBHYAEgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAgEgGgiQAg-AAAAAAAADwA2iABYHBiAAAAA=');
 }
 
+/* --- Tiled Layout --- */
 .desktop {
-    position: relative;
-    height: calc(100vh - 25px); /* Full height minus status bar */
+    height: calc(100vh - 25px);
     width: 100vw;
+    padding: 20px;
 }
-
-.window {
-    position: absolute;
-    background-color: #1e1f29; /* Slightly darker than main bg */
-    border: 1px solid var(--current-line);
+.grid-container {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    grid-template-rows: 1fr auto;
+    gap: 20px;
+    height: 100%;
+}
+.grid-column-left {
     display: flex;
     flex-direction: column;
-    min-width: 250px;
-    min-height: 150px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.25);
-    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    gap: 20px;
+}
+.grid-column-right {
+    display: grid;
+    grid-template-rows: 1fr 200px; /* Projects take most space, log gets 200px */
+    gap: 20px;
 }
 
+/* --- Window Styling --- */
+.window {
+    background-color: var(--panel-bg);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease-in-out;
+    position: static; /* Tiled by default */
+}
+.window.is-dragging {
+    position: absolute; /* Becomes floating when dragged */
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
 .window.is-active {
-    border-color: var(--purple);
-    box-shadow: 0 0 25px rgba(189, 147, 249, 0.3);
-    z-index: 100; /* Bring to front */
+    border-color: var(--accent-red);
+    box-shadow: 0 0 25px rgba(217, 69, 95, 0.3);
+    z-index: 100;
 }
 
 .title-bar {
-    background-color: var(--current-line);
-    color: var(--foreground);
-    padding: 4px 8px;
+    background-color: transparent; /* Cleaner look */
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    padding: 6px 10px;
     cursor: move;
-    user-select: none; /* Prevent text selection while dragging */
+    user-select: none;
     font-weight: 700;
 }
-
 .content {
     padding: 15px;
     flex-grow: 1;
-    overflow: auto; /* Make content scrollable if it overflows */
+    overflow: auto;
 }
-
-/* Specific Content Styling */
 h1 {
-    color: var(--cyan);
+    color: var(--accent-cyan);
     margin: 0 0 10px 0;
 }
 
-.links li {
-    list-style: none;
-    display: inline-block;
-    margin-right: 15px;
-}
+/* --- Component-Specific Styles --- */
+.links li { list-style: none; display: inline; margin-right: 15px; }
+a { color: var(--accent-red); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 4px; }
 
-a {
-    color: var(--pink);
-    text-decoration: none;
-    transition: color 0.2s, background-color 0.2s;
-}
+.skills-list { list-style: none; padding: 0; margin: 0; }
+.skills-list li { margin-bottom: 8px; }
+.skill-category { color: var(--accent-cyan); font-weight: 700; }
 
-a:hover {
-    background-color: var(--pink);
-    color: var(--background);
-}
-
-.project-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+.project-list { list-style: none; padding: 0; margin: 0; }
 .project-list li { margin-bottom: 20px; }
-.project-list h3 { margin: 0; color: var(--green); }
-.project-list .tags { font-size: 0.8em; color: var(--orange); }
-.project-list p { margin: 5px 0 0 0; color: var(--comment); }
+.project-list h3 { margin: 0; color: var(--accent-green); }
+.project-list .tags { font-size: 0.8em; color: var(--text-muted); }
+.project-list p { margin: 5px 0 0 0; color: var(--text); }
 
 .log-content {
     margin: 0;
     font-size: 0.9em;
-    color: var(--foreground);
+    color: var(--text-muted);
+    white-space: pre-wrap; /* Allows text to wrap */
 }
-
-.cursor {
-    background-color: var(--foreground);
+.log-content .cursor {
+    display: inline-block;
+    background-color: var(--text);
+    width: 8px;
+    height: 1.2em;
     animation: blink 1s step-end infinite;
 }
 
 @keyframes blink {
     from, to { background-color: transparent }
-    50% { background-color: var(--foreground); }
+    50% { background-color: var(--text); }
 }
 
-/* Status Bar */
+/* --- Status Bar --- */
 .status-bar {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 25px;
-    background-color: var(--current-line);
-    color: var(--foreground);
+    background-color: var(--panel-bg);
+    border-top: 1px solid var(--border);
+    color: var(--text);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10px;
+    padding: 0 15px;
     font-size: 0.85em;
 }
-
-.status-right span {
-    margin-left: 15px;
-}
+.status-left, .status-right { display: flex; align-items: center; gap: 15px; }
+.raven-icon { color: var(--accent-red); font-size: 1.2em; }
