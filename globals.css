@@ -1,0 +1,309 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 10 10 11;
+    --foreground: 212 212 216;
+    --card: 26 26 29;
+    --card-foreground: 212 212 216;
+    --popover: 26 26 29;
+    --popover-foreground: 212 212 216;
+    --primary: 212 212 216;
+    --primary-foreground: 15 23 42;
+    --secondary: 39 39 42;
+    --secondary-foreground: 212 212 216;
+    --muted: 39 39 42;
+    --muted-foreground: 161 161 170;
+    --accent: 39 39 42;
+    --accent-foreground: 212 212 216;
+    --destructive: 220 38 38;
+    --destructive-foreground: 248 250 252;
+    --border: 39 39 42;
+    --input: 39 39 42;
+    --ring: 212 212 216;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-jetbrains-mono), "JetBrains Mono", monospace;
+    cursor: none;
+    background-color: rgb(10, 10, 11);
+    color: rgb(212, 212, 216);
+  }
+}
+
+/* Raven Color Palette */
+:root {
+  --raven-black: 10 10 11;
+  --raven-charcoal: 17 17 19;
+  --raven-dark-gray: 26 26 29;
+  --raven-medium-gray: 36 36 40;
+  --raven-light-gray: 47 47 52;
+  --raven-silver: 74 74 82;
+  --raven-muted: 107 107 115;
+  --raven-text: 168 168 176;
+  --raven-light-text: 212 212 216;
+  --raven-accent: 239 68 68;
+  --raven-accent-hover: 220 38 38;
+  --raven-accent-muted: 127 29 29;
+}
+
+/* Base styling */
+.theme-bg {
+  background-color: rgb(var(--raven-black));
+}
+
+.theme-surface {
+  background-color: rgb(var(--raven-charcoal));
+}
+
+.theme-card {
+  background-color: rgb(var(--raven-dark-gray));
+  border-color: rgb(var(--raven-medium-gray));
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.theme-text-primary {
+  color: rgb(var(--raven-light-text));
+}
+
+.theme-text-secondary {
+  color: rgb(var(--raven-text));
+}
+
+.theme-text-muted {
+  color: rgb(var(--raven-muted));
+}
+
+.theme-accent {
+  color: rgb(var(--raven-accent));
+}
+
+.theme-accent-bg {
+  background-color: rgb(var(--raven-accent));
+}
+
+.theme-border {
+  border-color: rgb(var(--raven-medium-gray));
+}
+
+/* Raven atmosphere */
+.raven-atmosphere::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 20% 50%, rgba(239, 68, 68, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(239, 68, 68, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(239, 68, 68, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Glitch effect */
+@keyframes raven-glitch {
+  0% {
+    transform: translate(0);
+    text-shadow: 0 0 5px rgba(239, 68, 68, 0.4);
+  }
+  20% {
+    transform: translate(-1px, 1px);
+    text-shadow: 1px 0 0 rgba(239, 68, 68, 0.6), -1px 0 0 rgba(10, 10, 11, 0.8);
+  }
+  40% {
+    transform: translate(-1px, -1px);
+    text-shadow: 1px 0 0 rgba(10, 10, 11, 0.8), -1px 0 0 rgba(239, 68, 68, 0.6);
+  }
+  60% {
+    transform: translate(1px, 1px);
+    text-shadow: -1px 0 0 rgba(239, 68, 68, 0.6), 1px 0 0 rgba(10, 10, 11, 0.8);
+  }
+  80% {
+    transform: translate(1px, -1px);
+    text-shadow: -1px 0 0 rgba(10, 10, 11, 0.8), 1px 0 0 rgba(239, 68, 68, 0.6);
+  }
+  100% {
+    transform: translate(0);
+    text-shadow: 0 0 5px rgba(239, 68, 68, 0.4);
+  }
+}
+
+.raven-glitch-hover:hover {
+  animation: raven-glitch 0.3s ease-in-out;
+}
+
+/* Button styles */
+.theme-button-primary {
+  background-color: rgb(var(--raven-accent));
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.theme-button-primary:hover {
+  background-color: rgb(var(--raven-accent-hover));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.theme-button-outline {
+  background-color: transparent;
+  border: 1px solid rgb(var(--raven-text));
+  color: rgb(var(--raven-text));
+  transition: all 0.3s ease;
+}
+
+.theme-button-outline:hover {
+  background-color: rgb(var(--raven-medium-gray));
+  color: rgb(var(--raven-light-text));
+  border-color: rgb(var(--raven-accent));
+  transform: translateY(-1px);
+}
+
+.theme-button-ghost {
+  color: rgb(var(--raven-muted));
+  transition: all 0.3s ease;
+}
+
+.theme-button-ghost:hover {
+  background-color: rgb(var(--raven-medium-gray));
+  color: rgb(var(--raven-accent));
+}
+
+/* Card hover effects */
+.theme-card-hover {
+  transition: all 0.3s ease;
+}
+
+.theme-card-hover:hover {
+  background-color: rgb(var(--raven-medium-gray));
+  border-color: rgb(var(--raven-accent));
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Navigation styling */
+.theme-nav {
+  background-color: rgba(10, 10, 11, 0.95);
+  border-color: rgb(var(--raven-medium-gray));
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Section backgrounds */
+.theme-section-alt {
+  background-color: rgba(17, 17, 19, 0.7);
+}
+
+/* Terminal styling */
+.theme-terminal {
+  background-color: rgb(var(--raven-black));
+  border-color: rgb(var(--raven-medium-gray));
+}
+
+.theme-terminal-header {
+  background-color: rgb(var(--raven-charcoal));
+  border-color: rgb(var(--raven-medium-gray));
+}
+
+/* Badge styling */
+.theme-badge {
+  background-color: rgb(var(--raven-medium-gray));
+  color: rgb(var(--raven-text));
+  border: none;
+}
+
+.theme-badge-outline {
+  background-color: transparent;
+  color: rgb(var(--raven-text));
+  border: 1px solid rgb(var(--raven-silver));
+}
+
+/* Text shadows for better readability */
+.theme-text-shadow {
+  text-shadow: 0 1px 3px rgba(10, 10, 11, 0.8);
+}
+
+/* Focus states */
+.theme-focus:focus {
+  outline: 2px solid rgb(var(--raven-accent));
+  outline-offset: 2px;
+}
+
+/* Input styling */
+.theme-input {
+  background-color: rgb(var(--raven-dark-gray));
+  border-color: rgb(var(--raven-medium-gray));
+  color: rgb(var(--raven-light-text));
+}
+
+.theme-input:focus {
+  border-color: rgb(var(--raven-accent));
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Scrollbar styling */
+.theme-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.theme-scroll::-webkit-scrollbar-track {
+  background: rgb(var(--raven-black));
+}
+
+.theme-scroll::-webkit-scrollbar-thumb {
+  background: rgb(var(--raven-accent));
+  border-radius: 4px;
+}
+
+.theme-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--raven-accent-hover));
+}
+
+/* Enhanced skills container spacing */
+.skills-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+@media (min-width: 768px) {
+  .skills-grid {
+    gap: 2.5rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .skills-grid {
+    gap: 3rem;
+  }
+}
+
+/* Ensure cursor is visible on all interactive elements */
+button,
+a,
+input,
+[role="button"],
+[tabindex] {
+  cursor: none !important;
+}
+
+/* Enhanced hover states for better UX */
+.interactive-hover {
+  transition: all 0.2s ease;
+}
+
+.interactive-hover:hover {
+  transform: translateY(-1px);
+}
