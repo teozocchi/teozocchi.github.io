@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matteo Zocchi - DevOps Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="#" class="nav-brand">
+                    <i data-lucide="terminal"></i>
+                    <span>matteo@devops:~$</span>
+                </a>
+                <div class="nav-links">
+                    <a href="#about">./about</a>
+                    <a href="#projects">./projects</a>
+                    <a href="#experience">./experience</a>
+                    <a href="#contact">./contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="command">$ whoami</div>
+                    <h1 class="hero-title">
+                        <span class="accent">Matteo</span> <span>Zocchi</span>
+                    </h1>
+                    <div class="typing-container">
+                        <span>> </span>
+                        <span id="typing-text">DevOps Engineering Student</span>
+                        <span class="cursor">|</span>
+                    </div>
+                    <p class="hero-description">
+                        Computer Science student passionate about building scalable infrastructure, automating deployments, and
+                        bridging the gap between development and operations.
+                    </p>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/your-username" target="_blank" class="social-link">
+                        <i data-lucide="github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/your-profile" target="_blank" class="social-link">
+                        <i data-lucide="linkedin"></i>
+                    </a>
+                    <a href="mailto:teo@example.com" class="social-link">
+                        <i data-lucide="mail"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="branch">$</span> <span>cat about.md</span>
+            </h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a Computer Science student with a passion for DevOps and cloud infrastructure. Recently completed an
+                        internship where I gained hands-on experience with CI/CD pipelines, containerization, and cloud
+                        platforms.
+                    </p>
+                    <p>
+                        I love automating repetitive tasks, optimizing deployment processes, and ensuring systems are reliable
+                        and scalable. Always eager to learn new technologies and best practices in the DevOps space.
+                    </p>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i data-lucide="cloud"></i>
+                            <span>Cloud Platforms</span>
+                        </div>
+                        <div class="skill-item">
+                            <i data-lucide="container"></i>
+                            <span>Containerization</span>
+                        </div>
+                        <div class="skill-item">
+                            <i data-lucide="git-branch"></i>
+                            <span>CI/CD Pipelines</span>
+                        </div>
+                        <div class="skill-item">
+                            <i data-lucide="monitor"></i>
+                            <span>Monitoring & Logging</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="profile-card">
+                        <div class="profile-placeholder">
+                            <i data-lucide="user"></i>
+                        </div>
+                        <div class="profile-badge">./student</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Stats -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="accent">$</span> <span>system status</span>
+            </h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i data-lucide="activity"></i>
+                    <div>
+                        <p class="stat-label">Uptime</p>
+                        <p class="stat-value" id="uptime">0d 0h 0m</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i data-lucide="wifi"></i>
+                    <div>
+                        <p class="stat-label">Visitors</p>
+                        <p class="stat-value" id="visitors">42</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i data-lucide="hard-drive"></i>
+                    <div>
+                        <p class="stat-label">Projects</p>
+                        <p class="stat-value">3</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i data-lucide="cpu"></i>
+                    <div>
+                        <p class="stat-label">Commits</p>
+                        <p class="stat-value" id="commits">127</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="accent">$</span> <span>ls -la /skills/</span>
+            </h2>
+            <div class="skills-categories">
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i data-lucide="cloud"></i>
+                        <h3>Cloud & Infrastructure</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag">AWS</span>
+                        <span class="tag">Azure</span>
+                        <span class="tag">Terraform</span>
+                        <span class="tag">CloudFormation</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i data-lucide="container"></i>
+                        <h3>Containers & Orchestration</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag">Docker</span>
+                        <span class="tag">Kubernetes</span>
+                        <span class="tag">Helm</span>
+                        <span class="tag">Docker Compose</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i data-lucide="git-branch"></i>
+                        <h3>CI/CD & Automation</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag">GitHub Actions</span>
+                        <span class="tag">Jenkins</span>
+                        <span class="tag">GitLab CI</span>
+                        <span class="tag">Ansible</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="accent">$</span> <span>find ./projects -type f -name "*.yml"</span>
+            </h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Infrastructure-as-Code</h3>
+                        <div class="project-links">
+                            <a href="https://github.com" target="_blank"><i data-lucide="github"></i></a>
+                            <a href="https://example.com" target="_blank"><i data-lucide="external-link"></i></a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Terraform modules for deploying scalable web applications on AWS with auto-scaling and load balancing
+                    </p>
+                    <div class="project-image">
+                        <div class="placeholder-image">
+                            <i data-lucide="server"></i>
+                        </div>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag-outline">Terraform</span>
+                        <span class="tag-outline">AWS</span>
+                        <span class="tag-outline">EC2</span>
+                        <span class="tag-outline">ALB</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>CI/CD Pipeline</h3>
+                        <div class="project-links">
+                            <a href="https://github.com" target="_blank"><i data-lucide="github"></i></a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Automated deployment pipeline with testing, security scanning, and multi-environment promotion
+                    </p>
+                    <div class="project-image">
+                        <div class="placeholder-image">
+                            <i data-lucide="git-branch"></i>
+                        </div>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag-outline">GitHub Actions</span>
+                        <span class="tag-outline">Docker</span>
+                        <span class="tag-outline">Jest</span>
+                        <span class="tag-outline">SonarQube</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Monitoring Stack</h3>
+                        <div class="project-links">
+                            <a href="https://github.com" target="_blank"><i data-lucide="github"></i></a>
+                            <a href="https://example.com" target="_blank"><i data-lucide="external-link"></i></a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Complete observability solution with metrics, logs, and alerting for containerized applications
+                    </p>
+                    <div class="project-image">
+                        <div class="placeholder-image">
+                            <i data-lucide="bar-chart-3"></i>
+                        </div>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag-outline">Prometheus</span>
+                        <span class="tag-outline">Grafana</span>
+                        <span class="tag-outline">ELK Stack</span>
+                        <span class="tag-outline">AlertManager</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="branch">$</span> <span>history | grep experience</span>
+            </h2>
+            <div class="experience-list">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="branch">DevOps Engineering Intern</h3>
+                            <p class="experience-company">
+                                <span>TechCorp Solutions</span>
+                                <span>•</span>
+                                <span><i data-lucide="map-pin"></i> Remote</span>
+                            </p>
+                        </div>
+                        <div class="experience-date">
+                            <i data-lucide="calendar"></i>
+                            Summer 2024
+                        </div>
+                    </div>
+                    <ul class="experience-list-items">
+                        <li>Implemented CI/CD pipelines using GitHub Actions, reducing deployment time by 40%</li>
+                        <li>Containerized legacy applications with Docker and deployed to Kubernetes clusters</li>
+                        <li>Set up monitoring and alerting with Prometheus and Grafana for production services</li>
+                        <li>Automated infrastructure provisioning using Terraform on AWS</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="branch">Computer Science Student</h3>
+                            <p class="experience-company">
+                                <span>University Name</span>
+                                <span>•</span>
+                                <span><i data-lucide="map-pin"></i> City, State</span>
+                            </p>
+                        </div>
+                        <div class="experience-date">
+                            <i data-lucide="calendar"></i>
+                            2022 - 2026
+                        </div>
+                    </div>
+                    <ul class="experience-list-items">
+                        <li>Relevant coursework: Systems Programming, Database Systems, Software Engineering</li>
+                        <li>Active member of the Computer Science Club and DevOps Study Group</li>
+                        <li>GPA: 3.7/4.0</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terminal Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="accent">$</span> <span>interactive terminal</span>
+            </h2>
+            <p class="terminal-description">
+                Try out some commands! Type "help" to see what's available.
+            </p>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <div class="terminal-button red"></div>
+                        <div class="terminal-button yellow"></div>
+                        <div class="terminal-button green"></div>
+                    </div>
+                    <span class="terminal-title">matteo@devops-terminal</span>
+                </div>
+                <div class="terminal-body" id="terminal-output">
+                    <div class="terminal-line">Welcome to Teo's DevOps Terminal! Type "help" for available commands.</div>
+                    <div class="terminal-line"></div>
+                </div>
+                <div class="terminal-input-line">
+                    <span class="terminal-prompt">$</span>
+                    <input type="text" id="terminal-input" class="terminal-input" placeholder="Type a command..." autocomplete="off">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section section-alt">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">
+                    <span class="accent">$</span> <span>./contact.sh</span>
+                </h2>
+                <p class="contact-description">
+                    I'm actively seeking DevOps engineering opportunities and internships. Let's connect and discuss how I can
+                    contribute to your team!
+                </p>
+                <div class="contact-buttons">
+                    <a href="mailto:teo@example.com" class="btn btn-primary">
+                        <i data-lucide="mail"></i>
+                        Send Email
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="btn btn-outline">
+                        <i data-lucide="linkedin"></i>
+                        Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>$ echo "Built with HTML, CSS and JavaScript" && date</p>
+                <div class="footer-links">
+                    <a href="https://github.com" target="_blank"><i data-lucide="github"></i></a>
+                    <a href="https://linkedin.com" target="_blank"><i data-lucide="linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+    <div id="cursor-glow"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
