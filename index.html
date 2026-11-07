@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Matteo Zocchi</title>
-<meta name="description" content="Matteo Zocchi: Automation Engineering at Politecnico di Milano. PLC/SCADA, control systems, embedded.">
+<title>Matteo Zocchi · Automation Engineering</title>
+<meta name="description" content="Matteo Zocchi: Automation Engineering student at Politecnico di Milano. PLC/SCADA, control systems, embedded. Interested in AI safety from a safety-engineering angle.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Matteo Zocchi">
+<meta property="og:description" content="Matteo Zocchi: Automation Engineering student at Politecnico di Milano. PLC/SCADA, control systems, embedded. Interested in AI safety from a safety-engineering angle.">
 <meta name="theme-color" content="#16181b">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2316181b'/%3E%3Crect x='11' y='8' width='10' height='16' fill='%23e0a43a'/%3E%3C/svg%3E">
 <link rel="preload" href="fonts/jetbrains-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -54,7 +57,7 @@
     padding: clamp(2.5rem, 8vh, 5rem) 1rem 6rem;
   }
 
-  section { margin-bottom: 2.75rem; }
+  section { margin-bottom: 3rem; }
 
   p, ul { margin: 0; }
   ul { padding: 0; list-style: none; }
@@ -63,15 +66,22 @@
   .dim { color: var(--dim); }
 
   h1 {
-    margin: 0;
-    font-size: 1em;
+    margin: .35rem 0 .6rem;
+    font-size: clamp(1.5rem, 5.5vw, 1.875rem);
     font-weight: 700;
-    line-height: inherit;
+    line-height: 1.2;
+    letter-spacing: -.01em;
   }
+
+  p { text-wrap: pretty; }
+  ::selection { background: var(--amber); color: var(--bg); }
 
   a { color: var(--amber); text-decoration: none; overflow-wrap: anywhere; }
   a:hover { text-decoration: underline; text-underline-offset: .2em; }
   a:focus-visible { outline: 1px solid var(--amber); outline-offset: 3px; }
+  .arr { display: inline-block; transition: transform .15s ease; }
+  a:hover .arr, a:focus-visible .arr { transform: translateX(3px); }
+  .nw { white-space: nowrap; }
 
   /* projects */
   .proj + .proj { margin-top: 2rem; }
@@ -79,6 +89,9 @@
   .flag { color: var(--amber); font-weight: 400; margin-left: .75ch; white-space: nowrap; }
   .desc { margin: .5rem 0 .75rem; }
   .desc:last-child { margin-bottom: 0; }
+  @media (min-width: 561px) {
+    .proj { border-left: 1px solid var(--track); padding-left: 1.5ch; }
+  }
 
   /* ISA-101 style analog bar: grey only, amber setpoint tick */
   .pv {
@@ -171,6 +184,7 @@
   @media (prefers-reduced-motion: reduce) {
     .cursor { animation: none; }
     .fill { transition: none; }
+    .arr { transition: none; }
   }
 </style>
 </head>
@@ -186,14 +200,14 @@
     <p class="cmd">$ cat experience.log</p>
     <ul>
       <li class="proj">
-        <p class="name">Robolab</p>
-        <p class="dim">Robotics &amp; Coding Facilitator · Oct 2026–present</p>
-        <p class="desc">Robotics and coding lessons for school groups, including an ABB YuMi collaborative robot.</p>
+        <p class="name">KLinx</p>
+        <p class="dim">Machine Learning Engineer · <span class="nw">Feb–Jun 2026</span></p>
+        <p class="desc">Fine-tuned an Italian BERT NER model for invoice data extraction (PyTorch, Hugging Face); benchmarked candidate models, mine was selected for production. Earlier internship (Jun 2025): containerized reconciliation software with CI/CD, now running in their production reconciliation engine.</p>
       </li>
       <li class="proj">
-        <p class="name">KLinx</p>
-        <p class="dim">Machine Learning Engineer · Feb–Jun 2026</p>
-        <p class="desc">Fine-tuned an Italian BERT NER model for invoice data extraction (PyTorch, Hugging Face); benchmarked candidate models, mine was selected for production. Earlier internship (Jun 2025): containerized reconciliation software with CI/CD, now running in their production reconciliation engine.</p>
+        <p class="name">Robolab</p>
+        <p class="dim">Robotics &amp; Coding Facilitator · <span class="nw">Oct 2026–present</span></p>
+        <p class="desc">Robotics and coding lessons for school groups, including an ABB YuMi collaborative robot.</p>
       </li>
     </ul>
   </section>
@@ -211,13 +225,13 @@
           <span class="pv-val" id="pv-val">62.0 %</span>
           <span>SP 60.0</span>
         </div>
-        <p><a href="https://github.com/teozocchi/tank-level-control">→ github.com/teozocchi/tank-level-control</a></p>
+        <p><a href="https://github.com/teozocchi/tank-level-control"><span class="arr">→</span> github.com/teozocchi/tank-level-control</a></p>
       </li>
       <li class="proj">
         <p class="name">mh-stories-re</p>
         <p class="dim">Ghidra · x64dbg · Python</p>
         <p class="desc">Reverse engineered two undocumented, encrypted proprietary binary formats through static analysis and live debugging; published a Python toolchain. First working scale mod in the series.</p>
-        <p><a href="https://github.com/teozocchi/mh-stories-re">→ github.com/teozocchi/mh-stories-re</a></p>
+        <p><a href="https://github.com/teozocchi/mh-stories-re"><span class="arr">→</span> github.com/teozocchi/mh-stories-re</a></p>
       </li>
       <li class="proj">
         <p class="name">HexaCore-LITE</p>
