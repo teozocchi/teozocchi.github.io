@@ -2,30 +2,278 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Matteo Zocchi</title>
+<meta name="description" content="Matteo Zocchi: Automation Engineering at Politecnico di Milano. PLC/SCADA, control systems, embedded.">
+<meta name="theme-color" content="#16181b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2316181b'/%3E%3Crect x='11' y='8' width='10' height='16' fill='%23e0a43a'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/jetbrains-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-  :root { color-scheme: dark; }
-  body { background:#0d1117; color:#c9d1d9; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; display:flex; min-height:100vh; align-items:center; justify-content:center; margin:0; }
-  main { max-width:560px; padding:2rem; }
-  h1 { color:#e6edf3; font-size:1.6rem; margin:0 0 .25rem; }
-  .accent { color:#58a6ff; }
-  p { line-height:1.7; }
-  a { color:#58a6ff; text-decoration:none; }
-  a:hover { text-decoration:underline; }
-  .prompt { color:#8b949e; margin-top:1.6rem; }
-  .prompt::before { content:"$ "; color:#3fb950; }
+  @font-face {
+    font-family: "JetBrains Mono";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("fonts/jetbrains-mono-latin-400-normal.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "JetBrains Mono";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("fonts/jetbrains-mono-latin-700-normal.woff2") format("woff2");
+  }
+
+  :root {
+    color-scheme: dark;
+    --bg: #16181b;
+    --fg: #c9ccd1;
+    --dim: #8a9099;
+    --amber: #e0a43a;
+    --ok: #7fb77e;
+    --rule: #2a2d31;
+    --track: #3a3e44;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(2.5rem, 8vh, 5rem) 1rem 6rem;
+  }
+
+  section { margin-bottom: 2.75rem; }
+
+  p, ul { margin: 0; }
+  ul { padding: 0; list-style: none; }
+
+  .cmd { color: var(--amber); margin-bottom: .5rem; }
+  .dim { color: var(--dim); }
+
+  h1 {
+    margin: 0;
+    font-size: 1em;
+    font-weight: 700;
+    line-height: inherit;
+  }
+
+  a { color: var(--amber); text-decoration: none; overflow-wrap: anywhere; }
+  a:hover { text-decoration: underline; text-underline-offset: .2em; }
+  a:focus-visible { outline: 1px solid var(--amber); outline-offset: 3px; }
+
+  /* projects */
+  .proj + .proj { margin-top: 2rem; }
+  .name { font-weight: 700; }
+  .flag { color: var(--amber); font-weight: 400; margin-left: .75ch; white-space: nowrap; }
+  .desc { margin: .5rem 0 .75rem; }
+
+  /* ISA-101 style analog bar: grey only, amber setpoint tick */
+  .pv {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .25rem 1.25ch;
+    margin-bottom: .75rem;
+    font-size: .875rem;
+    color: var(--dim);
+  }
+  .pv-tag { color: var(--fg); }
+  .bar {
+    position: relative;
+    width: 14ch;
+    height: .75rem;
+    border: 1px solid var(--track);
+    background: transparent;
+  }
+  .fill {
+    display: block;
+    height: 100%;
+    width: calc(var(--level, 62) * 1%);
+    background: var(--dim);
+    transition: width .6s ease-out;
+  }
+  .sp {
+    position: absolute;
+    left: 60%;
+    top: -4px;
+    bottom: -4px;
+    width: 1px;
+    background: var(--amber);
+  }
+  .pv-val { color: var(--fg); font-variant-numeric: tabular-nums; min-width: 7ch; }
+
+  /* contact */
+  .kv { display: flex; gap: 2ch; }
+  .k { flex: none; width: 8ch; color: var(--dim); }
+
+  /* blinking block cursor on the final prompt */
+  .cursor {
+    display: inline-block;
+    width: 1ch;
+    height: 1.1em;
+    margin-left: .25ch;
+    vertical-align: text-bottom;
+    background: var(--amber);
+    animation: blink 1.1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* PLC / HMI style footer */
+  .status {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg);
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--dim);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .status-in {
+    display: flex;
+    align-items: center;
+    gap: 3ch;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: .6rem 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .ok { color: var(--ok); }
+  .status time { margin-left: auto; font-variant-numeric: tabular-nums; }
+
+  @media (max-width: 560px) {
+    .status-in { gap: 2ch; }
+    .wide { display: none; }
+  }
+  @media (max-width: 400px) {
+    body { font-size: 15px; }
+  }
+  @media (max-width: 349px) {
+    .status { font-size: 12px; }
+    .status-in { gap: 1.5ch; padding-left: .75rem; padding-right: .75rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cursor { animation: none; }
+    .fill { transition: none; }
+  }
 </style>
 </head>
 <body>
 <main>
-  <p class="prompt">whoami</p>
-  <h1>Matteo Zocchi</h1>
-  <p><span class="accent">Automation Engineering</span> @ Politecnico di Milano — PLC/SCADA, control systems, embedded.</p>
-  <p class="prompt">ls projects/</p>
-  <p><a href="https://github.com/teozocchi/tank-level-control">tank-level-control</a> — PLC + ISA-101 HMI in CODESYS Structured Text: on-off (v1) and PID (v2) level control.</p>
-  <p class="prompt">contact</p>
-  <p><a href="mailto:zocchi.matteo1@gmail.com">zocchi.matteo1@gmail.com</a> · <a href="https://github.com/teozocchi">GitHub</a> · <a href="https://linkedin.com/in/matteo-zocchi">LinkedIn</a></p>
+  <section>
+    <p class="cmd" id="cmd-whoami">$ <span id="typed">whoami</span></p>
+    <h1>Matteo Zocchi</h1>
+    <p>Automation Engineering @ Politecnico di Milano — PLC/SCADA, control systems, embedded.</p>
+  </section>
+
+  <section>
+    <p class="cmd">$ ls projects/</p>
+    <ul>
+      <li class="proj">
+        <p class="name">tank-level-control <span class="flag">[INTERLOCKS: 2]</span></p>
+        <p class="dim">CODESYS · Structured Text · ISA-101 HMI</p>
+        <p class="desc">PLC program with an ISA-101 style HMI, written in CODESYS Structured Text. Version 1 does on-off level control; version 2 replaces it with PID.</p>
+        <div class="pv" id="pv" role="meter" aria-label="Tank level, simulated" aria-valuemin="0" aria-valuemax="100" aria-valuenow="62">
+          <span class="pv-tag">LT-101</span>
+          <span class="bar" aria-hidden="true"><i class="fill" id="fill"></i><i class="sp"></i></span>
+          <span class="pv-val" id="pv-val">62.0 %</span>
+          <span>SP 60.0</span>
+        </div>
+        <p><a href="https://github.com/teozocchi/tank-level-control">→ github.com/teozocchi/tank-level-control</a></p>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="cmd">$ cat contact.txt</p>
+    <p class="kv"><span class="k">email</span><a href="mailto:zocchi.matteo1@gmail.com">zocchi.matteo1@gmail.com</a></p>
+    <p class="kv"><span class="k">github</span><a href="https://github.com/teozocchi">github.com/teozocchi</a></p>
+    <p class="kv"><span class="k">linkedin</span><a href="https://linkedin.com/in/matteo-zocchi">linkedin.com/in/matteo-zocchi</a></p>
+  </section>
+
+  <p class="cmd">$ <span class="cursor" aria-hidden="true"></span></p>
 </main>
+
+<footer class="status">
+  <div class="status-in">
+    <span class="ok">● SYS OK</span>
+    <span>matteo@monza</span>
+    <span><span class="wide">last updated: </span>Nov 2026</span>
+    <time id="clock"></time>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* clock: Monza local time, enhancement only */
+  var clock = document.getElementById("clock");
+  try {
+    var fmt = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Europe/Rome", hour: "2-digit", minute: "2-digit", second: "2-digit",
+      hour12: false, timeZoneName: "short"
+    });
+    var tick = function () {
+      var p = {};
+      fmt.formatToParts(new Date()).forEach(function (x) { p[x.type] = x.value; });
+      clock.innerHTML = "";
+      clock.appendChild(document.createTextNode(p.hour + ":" + p.minute));
+      var w = document.createElement("span");
+      w.className = "wide";
+      w.textContent = ":" + p.second + " " + p.timeZoneName;
+      clock.appendChild(w);
+    };
+    tick();
+    setInterval(tick, 1000);
+  } catch (e) {}
+
+  if (reduce) return;
+
+  /* whoami typing: fast, skippable, once */
+  var typed = document.getElementById("typed");
+  var full = typed.textContent, i = 0, timer;
+  var events = ["keydown", "pointerdown", "wheel", "touchstart"];
+  function stop() {
+    clearInterval(timer);
+    typed.textContent = full;
+    events.forEach(function (n) { removeEventListener(n, stop); });
+  }
+  typed.textContent = "";
+  timer = setInterval(function () {
+    i++;
+    typed.textContent = full.slice(0, i);
+    if (i >= full.length) stop();
+  }, 70);
+  events.forEach(function (n) { addEventListener(n, stop, { passive: true }); });
+
+  /* simulated tank level: slow drift around the 60 % setpoint */
+  var pv = document.getElementById("pv"), fill = document.getElementById("fill"),
+      val = document.getElementById("pv-val"), lvl = 62;
+  setInterval(function () {
+    if (document.hidden) return;
+    lvl += (60 - lvl) * 0.15 + (Math.random() - 0.5) * 2;
+    lvl = Math.max(56.5, Math.min(63.5, Math.round(lvl * 10) / 10));
+    fill.style.setProperty("--level", lvl);
+    val.textContent = lvl.toFixed(1) + " %";
+    pv.setAttribute("aria-valuenow", lvl.toFixed(1));
+  }, 2500);
+})();
+</script>
 </body>
 </html>
