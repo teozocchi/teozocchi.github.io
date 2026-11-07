@@ -78,6 +78,7 @@
   .name { font-weight: 700; }
   .flag { color: var(--amber); font-weight: 400; margin-left: .75ch; white-space: nowrap; }
   .desc { margin: .5rem 0 .75rem; }
+  .desc:last-child { margin-bottom: 0; }
 
   /* ISA-101 style analog bar: grey only, amber setpoint tick */
   .pv {
@@ -178,7 +179,23 @@
   <section>
     <p class="cmd" id="cmd-whoami">$ <span id="typed">whoami</span></p>
     <h1>Matteo Zocchi</h1>
-    <p>Automation Engineering @ Politecnico di Milano — PLC/SCADA, control systems, embedded.</p>
+    <p>Automation Engineering student @ Politecnico di Milano. Interested in AI safety from a safety-engineering angle: protection logic, failure modes, and how safeguards hold up under adversarial pressure.</p>
+  </section>
+
+  <section>
+    <p class="cmd">$ cat experience.log</p>
+    <ul>
+      <li class="proj">
+        <p class="name">Robolab</p>
+        <p class="dim">Robotics &amp; Coding Facilitator · Oct 2026–present</p>
+        <p class="desc">Robotics and coding lessons for school groups, including an ABB YuMi collaborative robot.</p>
+      </li>
+      <li class="proj">
+        <p class="name">KLinx</p>
+        <p class="dim">Machine Learning Engineer · Feb–Jun 2026</p>
+        <p class="desc">Fine-tuned an Italian BERT NER model for invoice data extraction (PyTorch, Hugging Face); benchmarked candidate models, mine was selected for production. Earlier internship (Jun 2025): containerized reconciliation software with CI/CD, now running in their production reconciliation engine.</p>
+      </li>
+    </ul>
   </section>
 
   <section>
@@ -187,7 +204,7 @@
       <li class="proj">
         <p class="name">tank-level-control <span class="flag">[INTERLOCKS: 2]</span></p>
         <p class="dim">CODESYS · Structured Text · ISA-101 HMI</p>
-        <p class="desc">PLC program with an ISA-101 style HMI, written in CODESYS Structured Text. Version 1 does on-off level control; version 2 replaces it with PID.</p>
+        <p class="desc">Protection logic: dry-run pump protection and safety alarms with operator acknowledge. On-off control with hysteresis (v1) and PID on a modulating valve (v2), with a self-contained process simulation and ISA-101 style HMI.</p>
         <div class="pv" id="pv" role="meter" aria-label="Tank level, simulated" aria-valuemin="0" aria-valuemax="100" aria-valuenow="62">
           <span class="pv-tag">LT-101</span>
           <span class="bar" aria-hidden="true"><i class="fill" id="fill"></i><i class="sp"></i></span>
@@ -196,7 +213,23 @@
         </div>
         <p><a href="https://github.com/teozocchi/tank-level-control">→ github.com/teozocchi/tank-level-control</a></p>
       </li>
+      <li class="proj">
+        <p class="name">mh-stories-re</p>
+        <p class="dim">Ghidra · x64dbg · Python</p>
+        <p class="desc">Reverse engineered two undocumented, encrypted proprietary binary formats through static analysis and live debugging; published a Python toolchain. First working scale mod in the series.</p>
+        <p><a href="https://github.com/teozocchi/mh-stories-re">→ github.com/teozocchi/mh-stories-re</a></p>
+      </li>
+      <li class="proj">
+        <p class="name">HexaCore-LITE</p>
+        <p class="dim">C++ · FreeRTOS · ESP32 / STM32</p>
+        <p class="desc">Control code for hexapod robot locomotion: motor synchronization, Ethernet/WiFi communication, stability and trajectory algorithms.</p>
+      </li>
     </ul>
+  </section>
+
+  <section>
+    <p class="cmd">$ cat skills.txt</p>
+    <p>PyTorch · Hugging&nbsp;Face · NLP/NER · CODESYS&nbsp;(PLC/SCADA) · FreeRTOS · ESP32/STM32 · C/C++ · Python · reverse&nbsp;engineering · CI/CD</p>
   </section>
 
   <section>
